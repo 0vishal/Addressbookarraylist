@@ -127,17 +127,52 @@ public class Addressbook {
         list.add(new Contact(firstName, lastName, area, city, state, zip, phoneNumber, email));
     }
 
+
+    public static String EditContact()
+    {
+        String name;
+        System.out.println(list.get(0));
+
+        System.out.println("Enter First Name of Details to be Edited: ");
+        name = sc.next();
+
+        if (name.equals(list.get(0).getFirstname()))
+        {
+            System.out.println("Enter FirstName");
+            list.get(0).setFirstname(sc.next());
+            System.out.println("Enter LastName");
+            list.get(0).setLastname(sc.next());
+            System.out.println("Enter Address");
+            list.get(0).setAddress(sc.next());
+            System.out.println("Enter CityName");
+            list.get(0).setCity(sc.next());
+            System.out.println("Enter StateName");
+            list.get(0).setState(sc.next());
+            System.out.println("Enter ZipCode");
+            list.get(0).setZip(sc.next());
+            System.out.println("Enter PhoneNumber");
+            list.get(0).setPhonenumber(sc.next());
+            System.out.println("Enter Email");
+            list.get(0).setEmail(sc.next());
+
+            System.out.println(list.get(0));
+            return "we have edits the contact";
+        }
+        else
+        {
+            return "Name Not Available in List";
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome To Address Book Problem\n");
 
         Addressbook info = new Addressbook();
-
         info.AddContact();
         for(int i=0; i<list.size(); i++)
         {
             System.out.println(list.get(i));
         }
-        
-    }
-
+        info.EditContact();
+}
 }
